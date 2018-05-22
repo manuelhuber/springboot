@@ -1,7 +1,7 @@
 package de.manuelhuber.costumer.service.controller
 
-import de.manuelhuber.costumer.service.model.CustomerModel
-import de.manuelhuber.costumer.service.repository.CustomerRepository
+import de.manuelhuber.costumer.service.model.NotFoundException
+import de.manuelhuber.costumer.service.service.CustomerService
 import de.manuelhuber.customer.api.Customer
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpHeaders
@@ -13,38 +13,46 @@ import org.springframework.web.util.UriComponentsBuilder
 
 
 @RestController
-@RequestMapping(value = ["/customer"])
+@RequestMapping(value = ["/customer"], produces = [MediaType.APPLICATION_JSON_VALUE])
+@ResponseStatus(HttpStatus.OK)
 class CustomerController {
 
     @Autowired
-    private lateinit var repository: CustomerRepository
+    private lateinit var service: CustomerService
 
-    @RequestMapping(method = [(RequestMethod.GET)], produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getAllCustomers(): ResponseEntity<List<Customer>> {
-        val customers: List<Customer> = repository.findAll().map(CustomerModel::toCustomer)
-        return ResponseEntity(customers, HttpStatus.OK)
+    @GetMapping()
+    fun getAllCustomers(): Collection<Customer> {
+        return service.getAllCustomers()
     }
 
-    @RequestMapping(value = ["/{id}"], method = [(RequestMethod.GET)], produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun getCustomer(@PathVariable id: Long): ResponseEntity<Customer> {
-        val model = repository.findById(id)
-        if (!model.isPresent) return ResponseEntity(HttpStatus.NOT_FOUND)
-        return ResponseEntity(model.get().toCustomer(), HttpStatus.OK)
+    @GetMapping("/{id}")
+    fun getCustomer(@PathVariable id: Long): Customer {
+        return service.getCustomer(id)
     }
 
-    @RequestMapping(method = [(RequestMethod.POST)], produces = [MediaType.APPLICATION_JSON_VALUE])
+    @PutMapping("/{id}")
+    fun updateCustomer(@PathVariable id: Long, @RequestBody customerPojo: Customer): Customer {
+        return service.update(id, customerPojo)
+    }
+
+    @PostMapping()
     fun addCustomer(@RequestBody customerPojo: Customer, uriBuilder: UriComponentsBuilder): ResponseEntity<Customer> {
-        val customer = repository.save(CustomerModel.fromCustomer(customerPojo))
-        customer.id = 0 // Ensure we save don't override an existing customer
-        customer.address!!.id = 0
+        val customer = service.add(customerPojo)
         val headers = HttpHeaders()
         headers.location = uriBuilder.path("/customer/{id}").buildAndExpand(customer.id).toUri()
-        return ResponseEntity(headers, HttpStatus.CREATED)
+        return ResponseEntity(customer, headers, HttpStatus.CREATED)
     }
 
-    @RequestMapping(value = ["/{id}"], method = [(RequestMethod.DELETE)], produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun deleteCustomer(@PathVariable id: Long): ResponseEntity<Unit> {
-        repository.deleteById(id)
-        return ResponseEntity(HttpStatus.OK)
+    @DeleteMapping("/{id}")
+    fun deleteCustomer(@PathVariable id: Long) {
+        service.delete(id)
     }
+
+    @ResponseStatus(value = HttpStatus.NOT_FOUND)
+    @ExceptionHandler(NotFoundException::class)
+    fun notFound(exception: NotFoundException): String {
+        println(exception.message)
+        return exception.message
+    }
+
 }
