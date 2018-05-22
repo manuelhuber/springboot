@@ -14,8 +14,10 @@ class RestApplication {
     @Bean
     fun inizialisiere(repo: CustomerRepository): InitializingBean {
         return InitializingBean {
-            repo.save(CustomerModel("Harry", "Hirsch", Date(),
-                    AddressModel("Wiesenweg 4", "Rosenheim", 83024)))
+            repo.save(CustomerModel(1, "Harry", "Hirsch", Date(),
+                    AddressModel(123, "Wiesenweg 4", "Rosenheim", 83024)))
+            repo.save(CustomerModel(2, "Foo", "Hirsch", Date(),
+                    AddressModel(123, "Wiesenweg 4", "Rosenheim", 83024)))
         }
     }
 }

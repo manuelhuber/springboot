@@ -8,29 +8,31 @@ import javax.persistence.*
 @Entity
 @Table(name = "customers")
 class CustomerModel(
-        val firstName: String,
-        val lastName: String,
-        val birthday: Date,
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        var id: Long = 0,
+        var firstName: String = "",
+        var lastName: String = "",
+        var birthday: Date = Date(),
         @OneToOne(fetch = FetchType.EAGER,
                 cascade = [CascadeType.ALL])
-        val address: AddressModel
+        var address: AddressModel? = null
 ) {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0
+
 
     fun toCustomer(): Customer {
-        return Customer(id, firstName, lastName, birthday, address.toAddress())
+        return Customer(id, firstName, lastName, birthday, address!!.toAddress())
     }
 
     companion object {
         fun fromCustomer(customer: Customer): CustomerModel {
-            return CustomerModel(
-                    customer.firstName,
-                    customer.lastName,
-                    customer.birthday,
-                    AddressModel.fromAddress(customer.address)
-            )
+            val model = CustomerModel()
+            model.id = customer.id
+            model.firstName = customer.firstName
+            model.lastName = customer.lastName
+            model.birthday = customer.birthday
+            model.address = AddressModel.fromAddress(customer.address)
+            return model
         }
     }
 }

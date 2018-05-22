@@ -5,22 +5,26 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "addresses")
-class AddressModel(
-        val street: String,
-        val city: String,
-        val zipCode: Int
+class AddressModel(@Id
+                   @GeneratedValue(strategy = GenerationType.IDENTITY)
+                   var id: Long = 0,
+                   var street: String = "",
+                   var city: String = "",
+                   var zipCode: Int = 0
 ) {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long = 0
 
     fun toAddress(): Address {
-        return Address(street, city, zipCode)
+        return Address(id, street, city, zipCode)
     }
 
     companion object {
         fun fromAddress(address: Address): AddressModel {
-            return AddressModel(address.street, address.city, address.zipCode)
+            val model = AddressModel()
+            model.id = address.id
+            model.street = address.street
+            model.city = address.city
+            model.zipCode = address.zipCode
+            return model
         }
     }
 }
