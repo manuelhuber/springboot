@@ -14,7 +14,7 @@ class CustomerService {
     private lateinit var repository: CustomerRepository
 
     fun update(id: Long, customer: Customer): Customer {
-        val old = getCustomerModel(id)
+        val old = getModel(id)
         old.birthday = customer.birthday
         old.firstName = customer.firstName
         old.lastName = customer.lastName
@@ -29,22 +29,22 @@ class CustomerService {
         return repository.save(customerModel).toCustomer()
     }
 
-    fun delete(id: Long): Unit {
+    fun delete(id: Long) {
         repository.deleteById(id
         )
     }
 
-    fun getCustomer(id: Long): Customer {
-        return getCustomerModel(id).toCustomer()
+    fun get(id: Long): Customer {
+        return getModel(id).toCustomer()
     }
 
-    fun getCustomerModel(id: Long): CustomerModel {
+    fun getModel(id: Long): CustomerModel {
         val model = repository.findById(id)
-        if (!model.isPresent) throw NotFoundException("Not customer with id=${id} found")
+        if (!model.isPresent) throw NotFoundException("No customer with id=$id found")
         return model.get()
     }
 
-    fun getAllCustomers(): Collection<Customer> {
+    fun getAll(): Collection<Customer> {
         return repository.findAll().map(CustomerModel::toCustomer)
     }
 }

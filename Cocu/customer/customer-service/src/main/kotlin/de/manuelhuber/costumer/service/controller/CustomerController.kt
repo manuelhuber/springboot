@@ -1,5 +1,6 @@
 package de.manuelhuber.costumer.service.controller
 
+import de.manuelhuber.costumer.service.model.GenericMessage
 import de.manuelhuber.costumer.service.model.NotFoundException
 import de.manuelhuber.costumer.service.service.CustomerService
 import de.manuelhuber.customer.api.Customer
@@ -11,7 +12,6 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.util.UriComponentsBuilder
 
-
 @RestController
 @RequestMapping(value = ["/customer"], produces = [MediaType.APPLICATION_JSON_VALUE])
 @ResponseStatus(HttpStatus.OK)
@@ -22,17 +22,17 @@ class CustomerController {
 
     @GetMapping()
     fun getAllCustomers(): Collection<Customer> {
-        return service.getAllCustomers()
+        return service.getAll()
     }
 
     @GetMapping("/{id}")
     fun getCustomer(@PathVariable id: Long): Customer {
-        return service.getCustomer(id)
+        return service.get(id)
     }
 
     @PutMapping("/{id}")
-    fun updateCustomer(@PathVariable id: Long, @RequestBody customerPojo: Customer): Customer {
-        return service.update(id, customerPojo)
+    fun updateCustomer(@PathVariable id: Long, @RequestBody customer: Customer): Customer {
+        return service.update(id, customer)
     }
 
     @PostMapping()
@@ -50,9 +50,8 @@ class CustomerController {
 
     @ResponseStatus(value = HttpStatus.NOT_FOUND)
     @ExceptionHandler(NotFoundException::class)
-    fun notFound(exception: NotFoundException): String {
-        println(exception.message)
-        return exception.message
+    fun notFound(exception: NotFoundException): GenericMessage {
+        return GenericMessage(exception.message)
     }
 
 }
