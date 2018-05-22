@@ -1,0 +1,28 @@
+buildscript {
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "$kotlinTarget"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "$kotlinTarget"
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compile("org.jetbrains.kotlin:kotlin-reflect")
+    runtime('com.h2database:h2')
+    compileOnly('org.projectlombok:lombok')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}

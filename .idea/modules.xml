@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Cocu.iml" filepath="$PROJECT_DIR$/.idea/modules/Cocu.iml" group="Cocu" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Cocu/customer/customer.iml" filepath="$PROJECT_DIR$/.idea/modules/Cocu/customer/customer.iml" group="Cocu/customer" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-api/customer-api.iml" filepath="$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-api/customer-api.iml" group="Cocu/customer/customer-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-api/customer-api_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-api/customer-api_main.iml" group="Cocu/customer/customer-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-api/customer-api_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-api/customer-api_test.iml" group="Cocu/customer/customer-api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-service/customer-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-service/customer-service_main.iml" group="Cocu/customer/customer-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-service/customer-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-service/customer-service_test.iml" group="Cocu/customer/customer-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-service/customer-service~1.iml" filepath="$PROJECT_DIR$/.idea/modules/Cocu/customer/customer-service/customer-service~1.iml" group="Cocu/customer/customer-service" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest.iml" filepath="$PROJECT_DIR$/.idea/modules/rest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest_main.iml" filepath="$PROJECT_DIR$/.idea/modules/rest_main.iml" group="rest" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/rest_test.iml" filepath="$PROJECT_DIR$/.idea/modules/rest_test.iml" group="rest" />
     </modules>
   </component>
 </project>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="rest:test" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="de.manuelhuber" external.system.module.type="sourceSet" external.system.module.version="0.0.1-SNAPSHOT" type="JAVA_MODULE" version="4">
+<module external.linked.project.id=":Cocu:customer:customer-service:test" external.linked.project.path="$MODULE_DIR$/../../../../../Cocu/customer/customer-service" external.root.project.path="$MODULE_DIR$/../../../../.." external.system.id="GRADLE" external.system.module.group="rest.Cocu.customer" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration />
@@ -7,13 +7,13 @@
     <facet type="kotlin-language" name="Kotlin">
       <configuration version="3" platform="JVM 1.8" useProjectSettings="false">
         <compilerSettings>
-          <option name="additionalArguments" value="-java-parameters -Xjsr305=strict" />
+          <option name="additionalArguments" value="-java-parameters" />
         </compilerSettings>
         <compilerArguments>
-          <option name="destination" value="$MODULE_DIR$/../../build/classes/kotlin/test" />
+          <option name="destination" value="$MODULE_DIR$/../../../../../Cocu/customer/customer-service/build/classes/kotlin/test" />
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
-          <option name="moduleName" value="rest" />
+          <option name="moduleName" value="customer-service" />
           <option name="jvmTarget" value="1.8" />
           <option name="addCompilerBuiltIns" value="true" />
           <option name="loadBuiltInsFromDependencies" value="true" />
@@ -39,14 +39,16 @@
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output-test url="file://$MODULE_DIR$/../../out/test/classes" />
+    <output-test url="file://$MODULE_DIR$/../../../../../Cocu/customer/customer-service/out/test/classes" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../src/test">
-      <sourceFolder url="file://$MODULE_DIR$/../../src/test/kotlin" isTestSource="true" />
+    <content url="file://$MODULE_DIR$/../../../../../Cocu/customer/customer-service/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../../../../Cocu/customer/customer-service/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../../../Cocu/customer/customer-service/src/test/kotlin" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../../../Cocu/customer/customer-service/src/test/resources" type="java-test-resource" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="rest_main" />
+    <orderEntry type="module" module-name="customer-service_main" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-data-jpa:2.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.41" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.2.41" level="project" />
@@ -112,5 +114,5 @@
     <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-api:2.10.0" level="project" />
     <orderEntry type="library" name="Gradle: org.ow2.asm:asm:5.0.4" level="project" />
   </component>
-  <component name="TestModuleProperties" production-module="rest_main" />
+  <component name="TestModuleProperties" production-module="customer-service_main" />
 </module>

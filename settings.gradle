@@ -1,1 +1,9 @@
 rootProject.name = 'rest'
+include 'Cocu'
+include 'Cocu:customer'
+findProject(':Cocu:customer')?.name = 'customer'
+include 'Cocu:customer:customer-api'
+findProject(':Cocu:customer:customer-api')?.name = 'customer-api'
+include 'Cocu:customer:customer-service'
+findProject(':Cocu:customer:customer-service')?.name = 'customer-service'
+

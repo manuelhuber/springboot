@@ -1,0 +1,23 @@
+subprojects {
+
+    ext {
+        kotlinVersion = '1.2.41'
+        kotlinTarget = '1.8'
+        springBootVersion = '2.0.2.RELEASE'
+    }
+
+    repositories {
+        jcenter()
+    }
+
+    buildscript {
+        repositories {
+            jcenter()
+        }
+        dependencies {
+            classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
+        }
+
+    }
+
+}
