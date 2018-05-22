@@ -47,13 +47,14 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="customer-api_main" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-data-jpa:2.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.41" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.2.41" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-aop:2.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-jdbc:2.0.2.RELEASE" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.h2database:h2:1.4.197" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter:2.0.2.RELEASE" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.h2database:h2:1.4.197" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate:hibernate-core:5.2.17.Final" level="project" />
     <orderEntry type="library" name="Gradle: javax.transaction:javax.transaction-api:1.2" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.data:spring-data-jpa:2.0.7.RELEASE" level="project" />

@@ -20,6 +20,8 @@
       <module name="customer-api_test" target="1.8" />
       <module name="customer-service_main" target="1.8" />
       <module name="customer-service_test" target="1.8" />
+      <module name="customer_main" target="1.8" />
+      <module name="customer_test" target="1.8" />
       <module name="custumer-api_main" target="1.8" />
       <module name="custumer-api_test" target="1.8" />
       <module name="rest_main" target="1.8" />

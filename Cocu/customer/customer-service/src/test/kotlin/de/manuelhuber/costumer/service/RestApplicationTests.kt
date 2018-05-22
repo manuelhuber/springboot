@@ -1,4 +1,4 @@
-package de.manuelhuber.rest
+package de.manuelhuber.costumer.service
 
 import org.junit.Test
 import org.junit.runner.RunWith

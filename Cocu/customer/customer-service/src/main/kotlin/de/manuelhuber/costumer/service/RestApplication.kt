@@ -1,4 +1,4 @@
-package de.manuelhuber.rest
+package de.manuelhuber.costumer.service
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
