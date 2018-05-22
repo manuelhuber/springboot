@@ -1,8 +1,11 @@
 package de.manuelhuber.customer.api
 
-public class Customer(public val name: String) {
+import java.util.*
 
-    fun doStuff(): String {
-        return name
-    }
-}
+public class Customer(
+        val id: Long,
+        val firstName: String,
+        val lastName: String,
+        val birthday: Date,
+        val address: Address
+)
